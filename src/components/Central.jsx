@@ -19,19 +19,19 @@ const Central = () => {
     const played = useStore(state => state.played)
     const updatePlayed = useStore(state => state.updatePlayed)
 
-
       if (finalResult.length < 4) {
         let finalResultTest = []
         while (finalResultTest.length < 4) {
           const color = items[Math.floor(Math.random()*items.length)]
-          console.log("color", color);
           finalResultTest.push(color)
         }
         setFinalResult(finalResultTest)
       }
 
     useEffect(() => {
-      handleVerification() 
+      if (played.length > 0) {
+        handleVerification() 
+      }
     }, [played])
     
 
@@ -41,13 +41,18 @@ const Central = () => {
 
     const handleClick = async() => {
       await updatePlayed(Object.values(state)[0])
-      // setPlayed(current => [...Object.values(state)[0], ...current ]);
       setState({ [uuidv4()]: [] })    
     }
 
     const handleVerification = async() => {
-        
-      const playedValid = played.slice(played.length -4, played.length).map(value => value.content);
+      await played
+      const playedValid = played.slice(0, 4).map(value => value.content);
+
+      
+      console.log("playedValid", playedValid);
+      console.log("finalResult", finalResult);
+      console.log("index", played.length / 4);
+
       
       await updateData(playedValid, finalResult, played.length / 4)
       

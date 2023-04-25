@@ -13,26 +13,26 @@ export const useStore = create((set, get) => ({
         const data = get().responseData;
         let array = []
 
-    playedValid.forEach((el, index) => {
-        if(el === finalResult[index]) {
+    finalResult.forEach((el, index) => {
+        if(el === playedValid[index]) {
         array.push('black')
       }
-        if(el !== finalResult[index] && finalResult.includes(el)) {
+        else if(el !== playedValid[index] && playedValid.includes(el)) {
             array.push('white')
       }
+      else (
+        array.push('transparent')
+      )
+        
+      
       });
       array.sort()
-      if (array.length < 4) {
-          while (array.length < 4) {
-            array.push('transparent')
-          }
-      }
 
         data[10 - index].color_1 = array[0]
         data[10 - index].color_2 = array[1]
         data[10 - index].color_3 = array[2]
         data[10 - index].color_4 = array[3]
-        array = []
+    
         set({ data });
     },
   }))

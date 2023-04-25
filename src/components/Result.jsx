@@ -31,8 +31,8 @@ grid-row-gap: 5px;
 margin: 10px 0px;`
 
 const Item = styled.span`
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: ${props => props.bg};
     border: 1px solid black;
