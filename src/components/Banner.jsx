@@ -24,9 +24,6 @@ const Banner = () => {
                                       isDragging={snapshot.isDragging}
                                       bg={item.content}>
                                   </Item>
-                                  {snapshot.isDragging && (
-                                      <Clone>{item.content}</Clone>
-                                  )}
                               </>
                           )}
                       </Draggable>
@@ -52,11 +49,7 @@ const Item = styled.div`
     border: 1px ${props => (props.isDragging ? 'dashed #4099ff' : 'solid #ccc')};
 `;
 
-const Clone = styled(Item)`
-    + div {
-        display: none !important;
-    }
-`;
+
 
 const Kiosk = styled.div`
     position: absolute;
