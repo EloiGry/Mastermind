@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const ModalEnd = ({finalResult, text}) => {
     return (
-        <div className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-white text-black m-8">
-            <div className="flex flex-col">
+        <div className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-black text-white m-8 rounded-xl bg-opacity-30 backdrop-filter backdrop-blur-lg flex justify-center items-center">
+            <div className="flex flex-col items-center justify-center gap-4">
+                <p> La réponse était : </p>
                 <div className="flex gap-2">
                         {finalResult?.map((item, index) => {
                     return (
@@ -12,8 +13,8 @@ const ModalEnd = ({finalResult, text}) => {
                     )
                     })}
                 </div>
-                <p> {text} </p>
-                <button onClick={() => window.location.reload()} className="py-2 px-6">
+                <p className="font-bold"> {text} ! </p>
+                <button onClick={() => window.location.reload()} className="py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
                     <Link to='/play'> Rejouer </Link>
                 </button>
             </div>

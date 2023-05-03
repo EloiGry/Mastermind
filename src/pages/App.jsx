@@ -8,7 +8,7 @@ function App() {
   console.log(responseData);
 
   return (
-    <>
+    <div className="font-patrick">
       <Header/>
       <div className="h-[90vh] bg-lightBrown text-white text-center flex flex-col items-center">
         <h1 className="bg-gradient-to-r from-blue via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-3xl font-semibold"> Mastermind </h1>
@@ -16,7 +16,7 @@ function App() {
           <Link to='/play'> Play </Link>
         </button>
       </div>
-    </>
+    </div>
   )
 }
 

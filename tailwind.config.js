@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 export default {
   content: [
     "./index.html",
@@ -13,6 +14,9 @@ export default {
         'lightBrown': '#e6ccb2',
         'violet': '#b298dc',
         'blue': '#a5adff'
+      },
+      fontFamily: {
+        'patrick': ['Patrick Hand', ...defaultTheme.fontFamily.sans]
       },
     },
   },

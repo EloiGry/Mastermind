@@ -250,11 +250,10 @@ background: #ccc;
 const Item = styled.div`
 display: flex;
 user-select: none;
-padding: 0.5rem;
-margin: 1em;
-line-height: 1.5;
-width: 20px;
-height: 20px;
+/* padding: 0.5rem; */
+margin: 0.9em;
+width: 16px;
+height: 16px;
 border-radius: 50%;
 background-color: ${props => props.bg};
 border: 1px ${props => (props.isDragging ? 'dashed #4099ff' : 'solid #ddd')};
