@@ -6,18 +6,22 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 import { useStore } from "../slice/ResultSlice";
+import ModalEnd from "./ModalEnd";
 
 
 
 const Central = () => {
     const [state, setState] = useState({ [uuidv4()]: [] });
-    // const [played, setPlayed] = useState([])
     const [finalResult, setFinalResult] = useState([])
+    const [end, setEnd] = useState(false)
     const items = ITEMS.map(value => value.content);
     const union = [{key: '1', content:'_'}, {key: '2', content:'_'}, {key: '3', content:'_'}, {key: '4', content:'_'}]
+    const data = useStore(state => state.responseData)
     const updateData = useStore(state => state.updateData)
     const played = useStore(state => state.played)
     const updatePlayed = useStore(state => state.updatePlayed)
+
+    console.log(finalResult);
 
       if (finalResult.length < 4) {
         let finalResultTest = []
@@ -48,8 +52,15 @@ const Central = () => {
       await played
       const playedValid = played.slice(0, 4).map(value => value.content);
       await updateData(playedValid, finalResult, played.length / 4)
-      
+      await EndOfGame()  
     }
+
+    const EndOfGame = async() => {
+      const test = data.find(el => el.color_1 === 'black' && el.color_2 === 'black' && el.color_3 === 'black' && el.color_4 === 'black')
+      if (test) {
+          setEnd(true)
+      }
+  }
   
     const onDragEnd = (result) => {
       const { source, destination } = result;
@@ -147,6 +158,7 @@ const Central = () => {
 
 
 return (
+  <div className="h-[90vh]">
   <DragDropContext onDragEnd={onDragEnd}>
   <Banner/>
   <Content>
@@ -210,7 +222,10 @@ return (
         </Grid>
     </div>
   </Content>
+  
 </DragDropContext>
+{(end || played.length/4 > 9)  && <ModalEnd finalResult={finalResult} text={end ? 'Vous avez gagné' : 'Vous avez perdu'}/>}
+</div>
 );
 };
 

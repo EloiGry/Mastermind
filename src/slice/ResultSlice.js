@@ -26,7 +26,10 @@ export const useStore = create((set, get) => ({
         
       
       });
-      array.sort()
+const statusOrder = ['black','white', 'transparent']
+array.sort((a, b) => statusOrder.indexOf(a) - statusOrder.indexOf(b));
+
+
 
         data[10 - index].color_1 = array[0]
         data[10 - index].color_2 = array[1]

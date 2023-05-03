@@ -5,7 +5,7 @@ const Result = () => {
     const responseData = useStore(state => state.responseData)
     console.log(responseData);
     return (
-        <div className="flex flex-col justify-center items-center w-[150px] bg-[#ccc]">
+        <div className="flex flex-col justify-center items-center w-[125px] bg-[#ccc]">
            {responseData?.map(el => {
             return (
                 <Grid key={el.id}>
@@ -31,8 +31,8 @@ grid-row-gap: 5px;
 margin: 10px 0px;`
 
 const Item = styled.span`
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: ${props => props.bg};
     border: 1px solid black;
