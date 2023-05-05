@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from 'react-router'
 
-
-
 const ModalEnd = ({finalResult, text}) => {
     const navigate = useNavigate()
 
