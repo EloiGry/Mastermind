@@ -13,7 +13,7 @@ const ModalEnd = ({finalResult, text}) => {
                     })}
                 </div>
                 <p className="font-bold"> {text} ! </p>
-                <button onClick={() => location.reload()} className="py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
+                <button onClick={window.location.reload()} className="py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
                     Rejouer
                 </button>
             </div>
