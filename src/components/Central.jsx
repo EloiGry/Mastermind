@@ -2,7 +2,7 @@ import Banner from "./Banner";
 import Result from "./Result";
 import { ITEMS } from "../data/Items";
 import { useEffect, useState } from 'react';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable} from "react-beautiful-dnd";
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 import { useStore } from "../slice/ResultSlice";
@@ -206,7 +206,9 @@ return (
                                   )
                                   }
                             {provided.placeholder}
-                            {state[list].length < 4 && union.slice(0, 4 - state[list].length).map(el => <span key={el.key} className='text-black m-[1em]'> {el.content} </span>)}
+                            {state[list].length < 4 && union.slice(0, 4 - state[list].length).map(el => <Union key={el.key} isDraggingOver={
+                                snapshot.isDraggingOver
+                            }> {el.content} </Union>)}
                             {state[list].length === 4 && <button className='absolute right-4 bottom-2 border-2 border-white text-white px-3 py-1 rounded-lg' onClick={() => handleClick()}> Valider </button>}
                         </Container>
                     )}
@@ -279,6 +281,13 @@ background: #fff;
 padding: 0.5rem 0.5rem 0;
 border-radius: 3px 3px 0px 0px;
 `;
+
+const Union = styled.span`
+margin: 1em;
+display: ${props => (props.isDraggingOver ? 'none' : 'flex')};
+`;
+
+
 
 
 const Container = styled(List)`

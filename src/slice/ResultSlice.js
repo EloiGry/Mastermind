@@ -22,8 +22,7 @@ export const useStore = create((set, get) => ({
         else if(finalResult.includes(el)) {
           const filter1 = finalResult.filter((item, i) => item === el && item !== playedValid[i])
           const filter2 = playedValid.filter((item, i) => item === el && item !== finalResult[i])
-          console.log(filter1, "filter1")
-          console.log(filter2, "filter2")
+
           if (filter2.length > filter1.length) {
             if ((filter1.length - count) > 0) {
               array.push('white') 
