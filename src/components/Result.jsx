@@ -3,7 +3,6 @@ import { useStore } from "../slice/ResultSlice"
 
 const Result = () => {
     const responseData = useStore(state => state.responseData)
-    console.log(responseData);
     return (
         <div className="flex flex-col justify-center items-center w-[125px] bg-[#ccc]">
            {responseData?.map(el => {

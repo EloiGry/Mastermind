@@ -21,7 +21,6 @@ const Central = () => {
     const played = useStore(state => state.played)
     const updatePlayed = useStore(state => state.updatePlayed)
 
-    console.log(finalResult);
 
       if (finalResult.length < 4) {
         let finalResultTest = []
@@ -165,7 +164,7 @@ return (
       <Result/>
       <div className='flex flex-col justify-end w-[800px]'>
         {Object.keys(state).map((list, i) => {
-            console.log('==> list', state[list]);
+
             return (
                 <Droppable key={list} droppableId={list} direction='horizontal'>
                     {(provided, snapshot) => (

@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom"
 import Header from "../components/Header"
-import { useStore } from "../slice/ResultSlice";
 
 
 function App() {
-  const responseData = useStore(state => state.responseData)
-  console.log(responseData);
 
   return (
     <div className="font-patrick">

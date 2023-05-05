@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ModalEnd = ({finalResult, text}) => {
@@ -15,7 +14,7 @@ const ModalEnd = ({finalResult, text}) => {
                 </div>
                 <p className="font-bold"> {text} ! </p>
                 <button onClick={() => window.location.reload()} className="py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
-                    <Link to='/play'> Rejouer </Link>
+                    Rejouer
                 </button>
             </div>
             
