@@ -12,19 +12,35 @@ export const useStore = create((set, get) => ({
     updateData: (playedValid, finalResult, index) => {
         const data = get().responseData;
         let array = []
+        let count = 0
+        
 
-    finalResult.forEach((el, index) => {
-        if(el === playedValid[index]) {
+    playedValid.forEach((el, index) => {
+        if(el === finalResult[index]) {
         array.push('black')
       }
-        else if(el !== playedValid[index] && playedValid.includes(el)) {
+        else if(finalResult.includes(el)) {
+          const filter1 = finalResult.filter((item, i) => item === el && item !== playedValid[i])
+          const filter2 = playedValid.filter((item, i) => item === el && item !== finalResult[i])
+          console.log(filter1, "filter1")
+          console.log(filter2, "filter2")
+          if (filter2.length > filter1.length) {
+            if ((filter1.length - count) > 0) {
+              array.push('white') 
+              count ++
+            } else {
+              array.push('transparent')
+              count = 0
+            }
+          } else {
             array.push('white')
+          }
       }
-      else (
+      else {
         array.push('transparent')
-      )
+      }
         
-      
+        
       });
 const statusOrder = ['black','white', 'transparent']
 array.sort((a, b) => statusOrder.indexOf(a) - statusOrder.indexOf(b));

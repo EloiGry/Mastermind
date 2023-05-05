@@ -207,7 +207,7 @@ return (
                                   }
                             {provided.placeholder}
                             {state[list].length < 4 && union.slice(0, 4 - state[list].length).map(el => <span key={el.key} className='text-black m-[1em]'> {el.content} </span>)}
-                            {state[list].length === 4 && <button className='absolute right-4 top-4 border-2 border-white text-white px-3 py-1 rounded-lg' onClick={() => handleClick()}> Valider </button>}
+                            {state[list].length === 4 && <button className='absolute right-4 bottom-2 border-2 border-white text-white px-3 py-1 rounded-lg' onClick={() => handleClick()}> Valider </button>}
                         </Container>
                     )}
                 </Droppable>
