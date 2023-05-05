@@ -153,7 +153,7 @@ const Central = () => {
       return result;
     }
 
-    
+    console.log(finalResult);
 
 
 return (
