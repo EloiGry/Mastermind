@@ -153,8 +153,6 @@ const Central = () => {
       return result;
     }
 
-    console.log(finalResult);
-
 
 return (
   <div className="h-[90vh]">
