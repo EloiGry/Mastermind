@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router'
 
 const ModalEnd = ({finalResult, text}) => {
+    const navigate = useNavigate()
 
     return (
         <div className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-black text-white m-8 rounded-xl bg-opacity-30 backdrop-filter backdrop-blur-lg flex justify-center items-center">
@@ -15,9 +16,9 @@ const ModalEnd = ({finalResult, text}) => {
                     })}
                 </div>
                 <p className="font-bold"> {text} ! </p>
-                <Link to="/" className="py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
-                    Acceuil
-                </Link>
+                <button onClick={() => navigate(0)} className="text-center py-2 px-6 border-2 w-32 rounded-lg hover:text-blue hover:border-blue duration-300">
+                    Rejouer
+                </button>
             </div>
             
         </div>
