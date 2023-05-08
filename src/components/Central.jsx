@@ -206,7 +206,7 @@ return (
                             {state[list].length < 4 && union.slice(0, 4 - state[list].length).map(el => <Union key={el.key} isDraggingOver={
                                 snapshot.isDraggingOver
                             }> {el.content} </Union>)}
-                            {state[list].length === 4 && <button className='absolute right-4 bottom-2 border-2 border-white text-white px-3 py-1 rounded-lg' onClick={() => handleClick()}> Valider </button>}
+                            {state[list].length === 4 && <button className='absolute bottom-[-3em] md:right-4 md:bottom-2 border-2 border-white text-white px-3 py-1 rounded-lg' onClick={() => handleClick()}> Valider </button>}
                         </Container>
                     )}
                 </Droppable>
